@@ -1,0 +1,14 @@
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#calculate {
+  background-color: blueviolet;
+  height: 50px;
+  width: 125px;
+  border: 1px solid black;
+}
