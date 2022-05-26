@@ -4,63 +4,44 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Spline+Sans+Mono&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Communal Payments</title>
   </head>
-  <body>
-    <main class="wrapper">
-      <section class="meters-data">
-        <div class="meters-data__meter">
-          <input
-            class="meter__value"
-            id="light"
-            type="number"
-            autofocus
-            min="0"
-            max="9999"
-            value="1000"
-          />
-          <div class="meter__calculation"></div>
-          <div class="meter__total"></div>
-        </div>
+  <body class="wrapper">
+    <main class="container">
+      <div class="unit meter light">
+        <div class="unit__name">Свет</div>
+        <div class="unit__value" id="light" contenteditable="true">241</div>
+        <div class="unit__calculation"></div>
+        <div class="unit__result">500rub</div>
+      </div>
+      <div class="unit meter water">
+        <div class="unit__name">Вода</div>
+        <div class="unit__value" id="water" contenteditable="true">8</div>
+        <div class="unit__calculation"></div>
+        <div class="unit__result">500rub</div>
+      </div>
 
-        <div class="meters-data__meter">
-          <input
-            class="meter__value"
-            id="water"
-            type="number"
-            min="0"
-            max="9999"
-            value="1000"
-          />
-          <div class="meter__calculation"></div>
-          <div class="meter__total"></div>
+      <div class="unit invoice gas">
+        <div class="unit__name">Газ</div>
+        <div class="unit__gap"></div>
+        <div class="unit__result" id="gas" contenteditable="true">104.49</div>
+      </div>
+      <div class="unit invoice common">
+        <div class="unit__name">Общая</div>
+        <div class="unit__gap"></div>
+        <div class="unit__result" id="common" contenteditable="true">
+          2289.63
         </div>
-      </section>
+      </div>
 
-      <section class="invoice">
-        <div class="invoice__container">
-          <input
-            class="invoice__value"
-            id="gas"
-            type="number"
-            min="0"
-            max="999"
-            value="100"
-          />
-        </div>
-
-        <div class="invoice__container">
-          <input
-            class="invoice__value"
-            id="common"
-            type="number"
-            min="0"
-            max="9999"
-            value="2200"
-          />
-        </div>
-      </section>
+      <div class="total"></div>
     </main>
 
     <script src="app.js"></script>

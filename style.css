@@ -8,29 +8,87 @@
 }
 
 .wrapper {
-  display: flex;
-  min-height: 100vh;
-  background-color: #78716c;
+  height: 100vh;
 }
 
-.meters-data {
-  display: flex;
-  width: 50%;
+.container {
+  min-height: 100%;
+  background-color: #908d81;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'light water gas common'
+    'total total total total';
 }
 
-.meter__value {
-  color: #f1f5f9;
+.unit__name {
+  text-align: center;
+  font-size: 64px;
+  font-family: 'Spline Sans Mono', monospace;
+}
+
+.unit__value {
+  text-align: center;
   font-size: 48px;
-  background-color: transparent;
+  font-family: 'Open Sans', sans-serif;
+  border-bottom: 3px solid #27272a;
 }
 
-.invoice {
-  display: flex;
-  width: 50%;
+.unit__calculation {
+  padding: 24px;
+  font-size: 24px;
 }
 
-.invoice__value {
-  color: #f1f5f9;
+.unit__result {
+  text-align: center;
   font-size: 48px;
-  background-color: transparent;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fca5a5;
+}
+
+.light {
+  background-color: #fcd34d;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.4fr 0.5fr 2.2fr 0.9fr;
+  grid-area: light;
+}
+
+.water {
+  background-color: #a5b4fc;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.4fr 0.5fr 2.2fr 0.9fr;
+  grid-area: water;
+}
+
+.gas {
+  background-color: #7dd3fc;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.4fr 2.7fr 0.9fr;
+  grid-area: gas;
+}
+
+.common {
+  background-color: #bef264;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.4fr 2.7fr 0.9fr;
+  grid-area: common;
+}
+
+.total {
+  text-align: center;
+  font-size: 64px;
+
+  grid-area: total;
 }
