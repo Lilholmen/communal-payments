@@ -3,12 +3,34 @@
 ::after {
   padding: 0;
   margin: 0;
+  border: none;
   box-sizing: border-box;
 }
 
-#calculate {
-  background-color: blueviolet;
-  height: 50px;
-  width: 125px;
-  border: 1px solid black;
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: #78716c;
+}
+
+.meters-data {
+  display: flex;
+  width: 50%;
+}
+
+.meter__value {
+  color: #f1f5f9;
+  font-size: 48px;
+  background-color: transparent;
+}
+
+.invoice {
+  display: flex;
+  width: 50%;
+}
+
+.invoice__value {
+  color: #f1f5f9;
+  font-size: 48px;
+  background-color: transparent;
 }

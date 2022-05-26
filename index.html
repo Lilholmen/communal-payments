@@ -8,31 +8,60 @@
     <title>Communal Payments</title>
   </head>
   <body>
-    <div class="wrapper">
-      <div class="light">
-        <label for="light">Свет:</label>
-        <input type="text" id="light" />
-      </div>
+    <main class="wrapper">
+      <section class="meters-data">
+        <div class="meters-data__meter">
+          <input
+            class="meter__value"
+            id="light"
+            type="number"
+            autofocus
+            min="0"
+            max="9999"
+            value="1000"
+          />
+          <div class="meter__calculation"></div>
+          <div class="meter__total"></div>
+        </div>
 
-      <div class="water">
-        <label for="water">Вода:</label>
-        <input type="text" id="water" />
-      </div>
+        <div class="meters-data__meter">
+          <input
+            class="meter__value"
+            id="water"
+            type="number"
+            min="0"
+            max="9999"
+            value="1000"
+          />
+          <div class="meter__calculation"></div>
+          <div class="meter__total"></div>
+        </div>
+      </section>
 
-      <div class="default">
-        <label for="default">Общая:</label>
-        <input type="text" id="default" />
-      </div>
+      <section class="invoice">
+        <div class="invoice__container">
+          <input
+            class="invoice__value"
+            id="gas"
+            type="number"
+            min="0"
+            max="999"
+            value="100"
+          />
+        </div>
 
-      <div class="gas">
-        <label for="gas">Газ:</label>
-        <input type="text" id="gas" />
-      </div>
-
-      <div class="total"></div>
-
-      <div id="calculate">Расчёт</div>
-    </div>
+        <div class="invoice__container">
+          <input
+            class="invoice__value"
+            id="common"
+            type="number"
+            min="0"
+            max="9999"
+            value="2200"
+          />
+        </div>
+      </section>
+    </main>
 
     <script src="app.js"></script>
   </body>

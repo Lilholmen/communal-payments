@@ -1,4 +1,4 @@
-const light = document.querySelector('#light');
+/* const light = document.querySelector('#light');
 const water = document.querySelector('#water');
 const def = document.querySelector('#default');
 const gas = document.querySelector('#gas');
@@ -20,3 +20,4 @@ calcBtn.addEventListener('click', () => {
   total.textContent = sum;
   console.log(sum);
 });
+ */
