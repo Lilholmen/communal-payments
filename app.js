@@ -50,6 +50,8 @@ function lightCalculation(value) {
     foock.innerHTML = `${value} * ${LIGHT_TARIFF_PREFERENTIAL} = ${result}`;
   }
 
+  document.querySelector('.light .unit__result').innerHTML = result;
+
   return result;
 }
 
@@ -60,7 +62,9 @@ function waterCalculation(value) {
 
   phuck.innerHTML = `${value} * ${WATER_TARIFF_IN} = ${waterIn}<br>`;
   phuck.innerHTML += `${value} * ${WATER_TARIFF_OUT} = ${waterOut}<br>`;
-  phuck.innerHTML += `${waterIn} * ${waterOut} = ${result}`;
+  phuck.innerHTML += `${waterIn} + ${waterOut} = ${result}`;
+
+  document.querySelector('.water .unit__result').innerHTML = result;
 
   return result;
 }

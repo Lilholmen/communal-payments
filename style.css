@@ -9,11 +9,13 @@
 
 .wrapper {
   height: 100vh;
+  min-width: 1080px;
+  font-family: 'Open Sans', sans-serif;
+  color: #e7e5e4;
 }
 
 .container {
   min-height: 100%;
-  background-color: #908d81;
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -28,14 +30,12 @@
 .unit__name {
   text-align: center;
   font-size: 64px;
-  font-family: 'Spline Sans Mono', monospace;
 }
 
 .unit__value {
   text-align: center;
   font-size: 48px;
-  font-family: 'Open Sans', sans-serif;
-  border-bottom: 3px solid #27272a;
+  border-bottom: 8px solid rgba(214, 211, 209, 0.3);
 }
 
 .unit__calculation {
@@ -44,14 +44,40 @@
 }
 
 .unit__result {
-  text-align: center;
+  display: grid;
+  place-items: center;
   font-size: 48px;
-  font-family: 'Open Sans', sans-serif;
-  background-color: #fca5a5;
+  background-color: #d97706;
+  position: relative;
+}
+
+.unit__result::before {
+  width: 50px;
+  height: 10px;
+  content: '';
+  background-color: #e7e5e4;
+  position: absolute;
+  right: -25px;
+  z-index: 99;
+}
+
+.unit__result::after {
+  width: 10px;
+  height: 50px;
+  content: '';
+  background-color: #e7e5e4;
+  position: absolute;
+  right: -5px;
+  z-index: 99;
+}
+
+.common .unit__result::after,
+.common .unit__result::before {
+  content: none;
 }
 
 .light {
-  background-color: #fcd34d;
+  background-color: #292524;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -60,7 +86,7 @@
 }
 
 .water {
-  background-color: #a5b4fc;
+  background-color: #44403c;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -69,7 +95,7 @@
 }
 
 .gas {
-  background-color: #7dd3fc;
+  background-color: #292524;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -78,7 +104,7 @@
 }
 
 .common {
-  background-color: #bef264;
+  background-color: #44403c;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -87,8 +113,10 @@
 }
 
 .total {
-  text-align: center;
-  font-size: 64px;
+  display: grid;
+  place-items: center;
+  font-size: 96px;
+  background-color: #1c1917;
 
   grid-area: total;
 }
