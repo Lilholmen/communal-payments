@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 .wrapper {
   height: 100vh;
   min-width: 1080px;
@@ -20,8 +24,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 2fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
   grid-template-areas:
     'light water gas common'
     'total total total total';
@@ -29,24 +31,24 @@
 
 .unit__name {
   text-align: center;
-  font-size: 64px;
+  font-size: 4rem;
 }
 
 .unit__value {
   text-align: center;
-  font-size: 48px;
+  font-size: 3rem;
   border-bottom: 8px solid rgba(214, 211, 209, 0.3);
 }
 
 .unit__calculation {
   padding: 24px;
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .unit__result {
   display: grid;
   place-items: center;
-  font-size: 48px;
+  font-size: 3rem;
   background-color: #d97706;
   position: relative;
 }
@@ -115,7 +117,7 @@
 .total {
   display: grid;
   place-items: center;
-  font-size: 96px;
+  font-size: 6rem;
   background-color: #1c1917;
 
   grid-area: total;

@@ -4,34 +4,28 @@ const LIGHT_TARIFF_LIMIT = 150;
 const WATER_TARIFF_IN = 40.78;
 const WATER_TARIFF_OUT = 28.8;
 
-const light = document.querySelector('#light');
-const water = document.querySelector('#water');
-const def = document.querySelector('#common');
-const gas = document.querySelector('#gas');
-const total = document.querySelector('.total');
+const documentElements = {
+  light: document.querySelector('#light'),
+  water: document.querySelector('#water'),
+  gas: document.querySelector('#gas'),
+  common: document.querySelector('#common'),
 
-const foock = document.querySelector('.light .unit__calculation');
-const phuck = document.querySelector('.water .unit__calculation');
+  lightCalculation: document.querySelector('.light .unit__calculation'),
+  waterCalculation: document.querySelector('.water .unit__calculation'),
+
+  lightResult: document.querySelector('.light .unit__result'),
+  waterResult: document.querySelector('.water .unit__result'),
+
+  total: document.querySelector('.total'),
+};
 
 const calcBtn = document.querySelector('.unit__gap');
 
-calcBtn.addEventListener('click', () => {
-  let sum = 0;
+calculateTotal();
 
-  sum += +gas.textContent;
-  sum += +def.textContent;
+calcBtn.addEventListener('click', calculateTotal);
 
-  sum += waterCalculation(water.textContent);
-
-  sum += lightCalculation(light.textContent);
-
-  sum = sum.toFixed(2);
-
-  total.textContent = sum;
-  console.log(sum);
-});
-
-function lightCalculation(value) {
+function calculateLight(value) {
   let result;
 
   if (value > 150) {
@@ -40,31 +34,46 @@ function lightCalculation(value) {
     const nonPreferential = overPreferential * LIGHT_TARIFF_NON_PREFERENTIAL;
     result = preferential + nonPreferential;
 
-    foock.innerHTML = `${value} - ${LIGHT_TARIFF_LIMIT} =  ${overPreferential}<br>`;
-    foock.innerHTML += `${LIGHT_TARIFF_LIMIT} * ${LIGHT_TARIFF_PREFERENTIAL} = ${preferential}<br>`;
-    foock.innerHTML += `${overPreferential} * ${LIGHT_TARIFF_NON_PREFERENTIAL} = ${nonPreferential}<br>`;
-    foock.innerHTML += `${preferential} + ${nonPreferential} = ${result}`;
+    documentElements.lightCalculation.innerHTML = `${value} - ${LIGHT_TARIFF_LIMIT} =  ${overPreferential}<br>`;
+    documentElements.lightCalculation.innerHTML += `${LIGHT_TARIFF_LIMIT} * ${LIGHT_TARIFF_PREFERENTIAL} = ${preferential}<br>`;
+    documentElements.lightCalculation.innerHTML += `${overPreferential} * ${LIGHT_TARIFF_NON_PREFERENTIAL} = ${nonPreferential}<br>`;
+    documentElements.lightCalculation.innerHTML += `${preferential} + ${nonPreferential} = ${result}`;
   } else {
     result = value * LIGHT_TARIFF_PREFERENTIAL;
 
-    foock.innerHTML = `${value} * ${LIGHT_TARIFF_PREFERENTIAL} = ${result}`;
+    documentElements.lightCalculation.innerHTML = `${value} * ${LIGHT_TARIFF_PREFERENTIAL} = ${result}`;
   }
 
-  document.querySelector('.light .unit__result').innerHTML = result;
+  documentElements.lightResult.innerHTML = result;
 
   return result;
 }
 
-function waterCalculation(value) {
+function calculateWater(value) {
   const waterIn = value * WATER_TARIFF_IN;
   const waterOut = value * WATER_TARIFF_OUT;
   const result = waterIn + waterOut;
 
-  phuck.innerHTML = `${value} * ${WATER_TARIFF_IN} = ${waterIn}<br>`;
-  phuck.innerHTML += `${value} * ${WATER_TARIFF_OUT} = ${waterOut}<br>`;
-  phuck.innerHTML += `${waterIn} + ${waterOut} = ${result}`;
+  documentElements.waterCalculation.innerHTML = `${value} * ${WATER_TARIFF_IN} = ${waterIn}<br>`;
+  documentElements.waterCalculation.innerHTML += `${value} * ${WATER_TARIFF_OUT} = ${waterOut}<br>`;
+  documentElements.waterCalculation.innerHTML += `${waterIn} + ${waterOut} = ${result}`;
 
-  document.querySelector('.water .unit__result').innerHTML = result;
+  documentElements.waterResult.innerHTML = result;
 
   return result;
+}
+
+function calculateTotal() {
+  let total = 0;
+
+  total =
+    calculateLight(documentElements.light.textContent) +
+    calculateWater(documentElements.water.textContent) +
+    +documentElements.gas.textContent +
+    +documentElements.common.textContent;
+
+  total = total.toFixed(2);
+
+  documentElements.total.textContent = total + ' ₽';
+  console.log(total);
 }
