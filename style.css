@@ -101,7 +101,7 @@ html {
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.4fr 2.7fr 0.9fr;
+  grid-template-rows: 0.4fr 0.5fr 2.2fr 0.9fr;
   grid-area: gas;
 }
 
@@ -110,7 +110,7 @@ html {
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.4fr 2.7fr 0.9fr;
+  grid-template-rows: 0.4fr 0.5fr 2.2fr 0.9fr;
   grid-area: common;
 }
 

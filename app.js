@@ -15,6 +15,8 @@ const documentElements = {
 
   lightResult: document.querySelector('.light .unit__result'),
   waterResult: document.querySelector('.water .unit__result'),
+  gasResult: document.querySelector('.gas .unit__result'),
+  commonResult: document.querySelector('.common .unit__result'),
 
   total: document.querySelector('.total'),
 };
@@ -73,6 +75,10 @@ function calculateTotal() {
     +documentElements.common.textContent;
 
   total = total.toFixed(2);
+
+  documentElements.gasResult.textContent = documentElements.gas.textContent;
+  documentElements.commonResult.textContent =
+    documentElements.common.textContent;
 
   documentElements.total.textContent = total + ' ₽';
   console.log(total);
